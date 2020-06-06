@@ -1,24 +1,94 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{avans}[2020/06/06 Avans Style Package]
 
+\RequirePackage{fontspec}
+\RequirePackage{geometry}
 \RequirePackage{etoolbox}
 \RequirePackage{tabulary}
+\RequirePackage{import}
+\RequirePackage{xcolor}
+\RequirePackage{titlesec}
+\RequirePackage{eso-pic}
+
+\setlength{\parindent}{0mm}
+\newgeometry{left=30mm,right=30mm,top=30mm,bottom=30mm}
+
+\def\@group{}
+
+% Fonts
+\defaultfontfeatures{Ligatures=TeX} 
+\newfontfamily{\regularfont}{Roboto Regular}
+\newfontfamily{\mediumfont}{Roboto Medium}
+\newfontfamily{\lightfont}{Roboto Light}
+\newfontfamily{\monofont}{Roboto Mono}
+
+\setmainfont{Roboto Light}
+
+% Colors
+\definecolor{avanscolor}{HTML}{DF1954}
+
+% Colored bars
+\AddToShipoutPictureBG{\AtPageUpperLeft{\textcolor{avanscolor}{\rule[-2mm]{\paperwidth}{2mm}}}}
+\AddToShipoutPictureBG{\AtPageLowerLeft{\textcolor{avanscolor}{\rule[-0mm]{\paperwidth}{1cm}}}}
+
+% Set title styling
+\titleformat*{\section}{\Large\mediumfont\color{avanscolor}}
+\titleformat*{\subsection}{\large\lightfont\color{avanscolor}}
+
+\newcommand{\tocsection}[1]{
+	\section*{#1}
+	\addcontentsline{toc}{section}{#1}
+}
+
+\newcommand{\tocsubsection}[1]{
+	\subsection*{#1}
+	\addcontentsline{toc}{subsection}{#1}
+}
+
+\newcommand{\tocsubsubsection}[1]{
+	\subsubsection*{#1}
+	\addcontentsline{toc}{subsubsection}{#1}
+}
 
 % Titlepage options
 \makeatletter
+
+\newcommand{\assignment}[2]{% {AssignmentName}{CourseName}
+	\newcommand\@assignmentname{#1}
+	\newcommand\@coursename{#2}
+}
 
 \newcommand{\student}[2]{% {StudentName}{StudentNumber}
 	\expandafter\newcommand\csname #1\endcsname{#2}
 	\listcsgadd{students}{#1}
 }
 
-\newcommand{\printstudent}[1]{\textbf{#1}: & \csuse{#1} \\}
+\newcommand{\group}[1]{\def\@group{#1}}
+
+\newcommand{\printstudent}[1]{\textbf{#1} & \csuse{#1} \\}
 \newcommand{\printstudents}{\forlistloop{\printstudent}{\students}}
 
 \renewcommand{\maketitle}{
-	\begin{tabular}{l | l}
+	\pagenumbering{gobble}
+	
+	{\LARGE\textcolor{avanscolor}\@coursename\par}
+	{\Huge\mediumfont\@assignmentname\par}	
+	{\textcolor{avanscolor}{\rule{0.49in}{3pt}}}
+
+	\vfill
+	
+	\ifdefempty{\@group}{}{{\large\textcolor{avanscolor}{\textbf{\@group}}}\par\vspace{3mm}}
+	
+	\begin{tabular}{@{}l | l}
 		\printstudents
 	\end{tabular}
+
+	\vspace{1cm}
+
+	{\large\@date\par}
+
+	\newpage
+	\pagenumbering{arabic}
 }
 
 \makeatother
