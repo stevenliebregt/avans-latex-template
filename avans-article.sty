@@ -1,0 +1,22 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{avans-article}[2020/06/07 Avans Article Style Package]
+
+\RequirePackage{geometry}
+
+\newgeometry{left=30mm,right=30mm,top=30mm,bottom=30mm}
+
+% Section commands without numbering in table of contents
+\newcommand{\tocsection}[1]{
+	\section*{#1}
+	\addcontentsline{toc}{section}{#1}
+}
+
+\newcommand{\tocsubsection}[1]{
+	\subsection*{#1}
+	\addcontentsline{toc}{subsection}{#1}
+}
+
+\newcommand{\tocsubsubsection}[1]{
+	\subsubsection*{#1}
+	\addcontentsline{toc}{subsubsection}{#1}
+}

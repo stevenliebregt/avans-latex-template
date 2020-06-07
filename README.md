@@ -1,6 +1,14 @@
-# README
+# Avans Latex Template
 
-## Packages documentation
+This repository contains a LaTeX template with Avans styling. It consists of a `core` package and specific packages for document classes. The currently supported classes are:
 
- - [todonotes](http://tug.ctan.org/macros/latex/contrib/todonotes/todonotes.pdf)
- * [etoolbox](http://mirror.koddos.net/CTAN/macros/latex/contrib/etoolbox/etoolbox.pdf)
+ * article
+ * beamer
+ 
+## Demo
+
+Demo files are included in this repository.
+
+[article](https://github.com/stevenliebregt/avans-latex-template/blob/master/example-article.pdf)
+
+[beamer](https://github.com/stevenliebregt/avans-latex-template/blob/master/example-beamer.pdf)
