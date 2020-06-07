@@ -2,9 +2,20 @@
 
 \usepackage{avans-core}
 \usepackage{avans-article}
+\usepackage{avans-questions}
 
-\usepackage[english]{babel}
+\usepackage[dutch]{babel}
 \usepackage{todonotes}
+\usepackage{hyperref}
+
+\hypersetup{
+	colorlinks=false,
+	linkbordercolor=red,		% color of internal links
+	citebordercolor=green,      % color of links to bibliography
+	filebordercolor=magenta,    % color of file links
+	urlbordercolor=cyan,		% color of external links
+	pdfborderstyle={/S/U/W 0.4}
+}
 
 % Titlepage options
 \assignment{The Assignment Name}{The Course Name}
@@ -26,5 +37,13 @@
 	\subsection{Subsection}
 	\subsubsection{Subsubsection}
 	
-	Lorem ipsum dolor sit amet nunquam tittilandus et cavea in caveam sedet et edet hilla canens.
+	Lorem ipsum dolor sit amet nunquam tittilandus et cavea in caveam sedet et edet hilla canens.\\
+	
+	\exercise{
+		Wanneer je een tekst met ROT-13 versleutelt, en deze cryptotekst opnieuw met ROT-13 versleuteld, krijg je de originele tekst. Met andere woorden, bij ROT-13 is het decryptie algoritme gelijk aan het encryptie algoritme. Leg uit waarom dit zo is.
+	}{
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sodales augue. Mauris vel semper nisi, at imperdiet libero. Morbi ac tortor ac libero dapibus vehicula vel ac est.
+	}
+
+	See the following \href{https://www.google.com}{link} to solve all your problems.
 \end{document}

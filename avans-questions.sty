@@ -1,0 +1,11 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{avans-questions}[2020/06/07 Avans Questions Style Package]
+
+\RequirePackage{scrextend}
+
+\newcommand{\exercise}[2]{
+	\small\textcolor{hintcolor}{\textit{#1}}\par
+	\vspace{2mm}
+	\begin{addmargin}{5mm}#2\par\end{addmargin}
+	\vspace{5mm}
+}
