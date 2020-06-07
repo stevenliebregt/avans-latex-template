@@ -2,6 +2,14 @@
 \ProvidesPackage{avans-beamer}[2020/06/07 Avans Beamer Style Package]
 
 \RequirePackage{titlesec}
+\RequirePackage{tikz}
+\usetikzlibrary{positioning}
+
+\setbeamertemplate{headline}{{\color{avanscolor}\rule{\paperwidth}{2mm}}}
+\setbeamertemplate{navigation symbols}{}
+\addtobeamertemplate{navigation symbols}{}{%
+	\tiny\lightfont\textcolor{avanscolor}{\insertframenumber/\inserttotalframenumber}\vspace{1mm}
+}
 
 % Set title styling
 \setbeamercolor{frametitle}{fg=avanscolor}
