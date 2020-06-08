@@ -1,0 +1,16 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{avans-sections}[2020/06/08 Avans Sections Package]
+
+\RequirePackage{xparse}
+
+\ExplSyntaxOn
+
+% \importsections{section1,section2} Imports section1.tex and section2.tex from sections/ folder
+\NewDocumentCommand{\importsections}{>{\SplitList{,}}m}{\ProcessList{#1}{\importsection}}
+\newcommand{\importsection}[1]{\import{sections/}{#1}}
+
+% \importsectionsbreak{section1,section2} Imports section1.tex and section2.tex from sections/ folder, and adds a new page after each import
+\NewDocumentCommand{\importsectionsbreak}{>{\SplitList{,}}m}{\ProcessList{#1}{\importsectionbreak}}
+\newcommand{\importsectionbreak}[1]{\import{sections/}{#1}\newpage}
+
+\ExplSyntaxOff
